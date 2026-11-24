@@ -1,6 +1,6 @@
 # AndMeasure privacy policy
 
-*Last updated 28 October 2026.*
+*Last updated 11 November 2026.*
 
 AndMeasure is made by Mikkel Christensen, Denmark. This policy explains what
 happens to your data when you use the app.
@@ -13,6 +13,12 @@ the app. If that changes, this policy will say so first.
 measure as you walk, and to tell you when you enter or leave a circle. It
 is not sent to the developer or anyone else. You can deny the location
 permission; the app then works without your position.
+
+**Recording a walk.** When you tap Walk, the app records your position
+until you tap Stop, also when the screen is off or the app is closed, and
+shows a notification the whole time. It never records unless you start it.
+The recorded points stay on your phone and are not sent to the developer or
+anyone else.
 
 **Your measurements** are stored on your phone. If Android backup is on
 for your Google account, Android includes them in that backup; you can
