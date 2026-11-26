@@ -1,0 +1,177 @@
+---
+layout: default
+title: "Land Unit Converter: Acre, Guntha, Cent, Bigha, Marla"
+description: "Convert land area between acre, hectare, guntha, cent, marla, kanal, bigha, katha, ground, square feet and square meters, and see what each unit is."
+permalink: /land-unit-converter/
+---
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "AndMeasure", "item": "https://andmeasure.app/" },
+    { "@type": "ListItem", "position": 2, "name": "Land unit converter", "item": "https://andmeasure.app/land-unit-converter/" }
+  ]
+}
+</script>
+
+<h1>Land unit converter</h1>
+<p>Convert an area between acres, hectares and the land units used in India, Bangladesh, Pakistan and Sri Lanka: guntha, cent, marla, kanal, bigha, katha and ground. Type the amount, pick its unit, and every other unit updates as you type.</p>
+
+<form class="converter" id="converter" action="#" onsubmit="return false">
+  <div class="converter-inputs">
+    <div class="field-amount">
+      <label for="amount">Amount</label>
+      <input id="amount" name="amount" type="text" inputmode="decimal" autocomplete="off" value="1">
+    </div>
+    <div class="field-unit">
+      <label for="unit">Unit</label>
+      <select id="unit" name="unit">
+        <option value="acre" selected>Acre</option>
+        <option value="ha">Hectare (ha)</option>
+        <option value="guntha">Guntha</option>
+        <option value="cent">Cent (decimal)</option>
+        <option value="perch">Marla (perch)</option>
+        <option value="kanal">Kanal</option>
+        <option value="bigha">Bigha (West Bengal, Bangladesh)</option>
+        <option value="katha">Katha (West Bengal, Bangladesh)</option>
+        <option value="ground">Ground</option>
+        <option value="ft2">Square feet (ft²)</option>
+        <option value="yd2">Square yards, gaj (yd²)</option>
+        <option value="m2">Square meters (m²)</option>
+        <option value="are">Are</option>
+        <option value="km2">Square kilometers (km²)</option>
+        <option value="mi2">Square miles (mi²)</option>
+      </select>
+    </div>
+  </div>
+  <ul class="converter-results" id="results" aria-live="polite">
+    <li><span>Hectare</span><span class="val">0.4047</span></li>
+    <li><span>Guntha</span><span class="val">40</span></li>
+    <li><span>Cent</span><span class="val">100</span></li>
+    <li><span>Marla</span><span class="val">160</span></li>
+    <li><span>Kanal</span><span class="val">8</span></li>
+    <li><span>Bigha</span><span class="val">3.025</span></li>
+    <li><span>Katha</span><span class="val">60.5</span></li>
+    <li><span>Ground</span><span class="val">18.15</span></li>
+    <li><span>Square feet</span><span class="val">43,560</span></li>
+    <li><span>Square yards</span><span class="val">4,840</span></li>
+    <li><span>Square meters</span><span class="val">4,046.86</span></li>
+  </ul>
+  <p class="converter-note">Bigha and katha differ from state to state. This converter, like the app, uses the West Bengal and Bangladesh bigha of 14,400 ft². Check the value used where your land is.</p>
+</form>
+
+<div class="cta-box">
+  <p><strong>Don't know the area yet?</strong> Measure the field on the satellite map, or walk round it with GPS, and AndMeasure gives the area in any of these units.</p>
+  <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.megelc.andmeasure"><img src="{{ '/assets/google-play-badge.png' | relative_url }}" alt="Get it on Google Play" width="207" height="80" loading="lazy"></a>
+</div>
+
+<h2>The units, and what each one is</h2>
+<table class="facts">
+  <thead><tr><th>Unit</th><th>Size</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Acre</strong><br><span class="where">India, Bangladesh, Pakistan, Sri Lanka, Myanmar, the US and UK</span></td><td>43,560 ft² = 4,046.86 m²</td></tr>
+    <tr><td><strong>Hectare</strong><br><span class="where">Most of the world, official records</span></td><td>10,000 m² = 2.4711 acre</td></tr>
+    <tr><td><strong>Guntha</strong><br><span class="where">Maharashtra, Karnataka, Gujarat, Telangana</span></td><td>1/40 acre = 1,089 ft² = 121 gaj</td></tr>
+    <tr><td><strong>Cent (decimal)</strong><br><span class="where">Kerala, Tamil Nadu, Karnataka; a decimal in Bangladesh</span></td><td>1/100 acre = 435.6 ft²</td></tr>
+    <tr><td><strong>Marla (perch)</strong><br><span class="where">Punjab, Haryana, Himachal, Jammu and Kashmir, Pakistan; a perch in Sri Lanka</span></td><td>1/160 acre = 272.25 ft²</td></tr>
+    <tr><td><strong>Kanal</strong><br><span class="where">Punjab, Haryana, Himachal, Jammu and Kashmir, Pakistan</span></td><td>20 marla = 1/8 acre = 5,445 ft²</td></tr>
+    <tr><td><strong>Bigha</strong><br><span class="where">West Bengal, Bangladesh (other states use other sizes)</span></td><td>20 katha = 14,400 ft² = 0.3306 acre</td></tr>
+    <tr><td><strong>Katha</strong><br><span class="where">West Bengal, Bangladesh</span></td><td>720 ft² = 80 gaj</td></tr>
+    <tr><td><strong>Ground</strong><br><span class="where">Tamil Nadu, Chennai</span></td><td>2,400 ft² = 5.51 cent</td></tr>
+    <tr><td><strong>Square yard (gaj)</strong><br><span class="where">Plots in towns across India and Pakistan</span></td><td>9 ft² = 0.8361 m²</td></tr>
+  </tbody>
+</table>
+
+<h2>Common conversions</h2>
+<h3>1 acre in other units</h3>
+<p>1 acre = 40 guntha = 100 cent = 160 marla = 8 kanal = 3.025 bigha = 60.5 katha = 18.15 ground = 43,560 ft² = 4,840 gaj = 4,046.86 m² = 0.4047 hectare.</p>
+<h3>1 hectare in other units</h3>
+<p>1 hectare = 2.4711 acre = 98.84 guntha = 247.11 cent = 395.37 marla = 19.77 kanal = 7.47 bigha = 107,639 ft² = 10,000 m².</p>
+<h3>1 bigha (West Bengal, Bangladesh) in other units</h3>
+<p>1 bigha = 20 katha = 14,400 ft² = 1,600 gaj = 1,337.80 m² = 0.3306 acre = 33.06 cent = 13.22 guntha.</p>
+
+<h2>Questions</h2>
+<h3>How many guntha are in an acre?</h3>
+<p>40. One guntha is 1,089 square feet, or 121 square yards (gaj).</p>
+<h3>How many cents are in an acre?</h3>
+<p>100. One cent is 435.6 square feet. In Bangladesh the same unit is called a decimal (shotangsho).</p>
+<h3>How many marla are in a kanal, and kanal in an acre?</h3>
+<p>20 marla make a kanal, and 8 kanal make an acre, so an acre is 160 marla. This converter uses the revenue marla of 272.25 ft². Some housing schemes use a smaller marla of 225 ft², so check which one a plot is sold in.</p>
+<h3>How many square feet are in a bigha?</h3>
+<p>It depends on the state. In West Bengal and Bangladesh a bigha is 14,400 ft² (20 katha of 720 ft²), and that is the bigha used here. In other states a bigha can be anywhere up to about 27,000 ft², so use the local value.</p>
+<h3>Can I convert in the app as well?</h3>
+<p>Yes. AndMeasure shows any measurement in all of these units: pick the unit in its settings, and the area of the field you measured is shown in it.</p>
+
+<script>
+(function () {
+  // Square meters per unit, from the same factors as the app (Conversion.java).
+  var M2_TO_ACRE = 0.000247105381, M2_TO_FT2 = 10.7639104;
+  var ACRE = 1 / M2_TO_ACRE, FT2 = 1 / M2_TO_FT2;
+  var UNITS = [
+    ['acre', 'Acre', ACRE], ['ha', 'Hectare', 1e4], ['guntha', 'Guntha', ACRE / 40],
+    ['cent', 'Cent', ACRE / 100], ['perch', 'Marla', ACRE / 160], ['kanal', 'Kanal', ACRE / 8],
+    ['bigha', 'Bigha', 14400 * FT2], ['katha', 'Katha', 720 * FT2], ['ground', 'Ground', 2400 * FT2],
+    ['ft2', 'Square feet', FT2], ['yd2', 'Square yards', 9 * FT2], ['m2', 'Square meters', 1],
+    ['are', 'Are', 100], ['km2', 'Square kilometers', 1e6], ['mi2', 'Square miles', 1 / 3.86102159e-7]
+  ];
+  var amount = document.getElementById('amount');
+  var unit = document.getElementById('unit');
+  var results = document.getElementById('results');
+
+  function fmt(x) {
+    var a = Math.abs(x);
+    if (a === 0) return '0';
+    if (a < 0.000001) return x.toExponential(3);
+    if (a < 1) return x.toLocaleString('en-US', { maximumSignificantDigits: 4 });
+    return x.toLocaleString('en-US', { maximumFractionDigits: a >= 1000 ? 2 : 4 });
+  }
+
+  function find(key) {
+    for (var i = 0; i < UNITS.length; i++) if (UNITS[i][0] === key) return UNITS[i];
+    return UNITS[0];
+  }
+
+  function render() {
+    var raw = amount.value.replace(/[,\s]/g, '');
+    var value = parseFloat(raw);
+    var from = find(unit.value);
+    results.textContent = '';
+    if (raw === '' || isNaN(value) || value < 0) {
+      var li = document.createElement('li');
+      li.textContent = 'Type an amount, for example 2.5';
+      results.appendChild(li);
+      return;
+    }
+    var m2 = value * from[2];
+    UNITS.forEach(function (u) {
+      if (u[0] === from[0]) return;
+      var li = document.createElement('li');
+      var name = document.createElement('span');
+      name.textContent = u[1];
+      var val = document.createElement('span');
+      val.className = 'val';
+      val.textContent = fmt(m2 / u[2]);
+      li.appendChild(name);
+      li.appendChild(val);
+      results.appendChild(li);
+    });
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.set('amount', raw);
+      url.searchParams.set('unit', from[0]);
+      window.history.replaceState(null, '', url);
+    } catch (e) { /* older browsers: the page works without it */ }
+  }
+
+  try {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('amount')) amount.value = params.get('amount');
+    if (params.get('unit') && find(params.get('unit'))[0] === params.get('unit')) unit.value = params.get('unit');
+  } catch (e) { /* no URLSearchParams: keep the defaults */ }
+
+  amount.addEventListener('input', render);
+  unit.addEventListener('change', render);
+  render();
+})();
+</script>
