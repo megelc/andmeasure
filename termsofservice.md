@@ -1,6 +1,6 @@
 # AndMeasure terms of service
 
-*Last updated 15 November 2026.*
+*Last updated 26 November 2026.*
 
 These terms apply when you use the AndMeasure app for Android and when
 you buy AndMeasure Pro. Please read them. By using the app you accept
@@ -39,8 +39,9 @@ installed the app will not be moved behind payment.
 
 AndMeasure Pro is an optional upgrade, bought inside the app. It is a
 **one-time purchase, not a subscription**: you pay once and are not
-charged again. Pro currently includes unlimited saved measurements,
-Circles mode, PDF reports, and a choice of marker colour and icon. What
+charged again. Pro currently includes walking the boundary with GPS,
+unlimited saved measurements, Circles mode, PDF reports, and a choice of
+marker colour and icon. What
 Pro includes at the time of purchase is shown on the Pro screen in the
 app. Pro features added later are included at no extra cost. Any
 future online service that has running costs, such as cloud sync, may be
@@ -59,7 +60,7 @@ the app. Pro is for your own use and cannot be transferred to another
 Google account.
 
 **Free tries.** The app may offer a free try of a Pro feature (for
-example one PDF report, or Circles for 24 hours). A try costs nothing,
+example one walk, one PDF report, or Circles for 24 hours). A try costs nothing,
 does not turn into a purchase, and ends by itself.
 
 ## 4. Right of withdrawal, refunds and complaints
@@ -128,7 +129,7 @@ guarantee they are always available or correct.
 ## 7. Your data
 
 How the app handles your data is described in the
-[AndMeasure privacy policy](https://github.com/megelc/andmeasure/blob/main/privacypolicy.md).
+[AndMeasure privacy policy](https://andmeasure.app/privacypolicy.html).
 In short: no accounts, no ads, no analytics, and your location and
 measurements stay on your phone unless you share them. Keep your own
 copies of measurements that matter to you: uninstalling the app deletes
