@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ page.title | default: site.title }}</title>
 {% if page.description %}<meta name="description" content="{{ page.description | escape }}">
-{% endif %}<link rel="canonical" href="https://andmeasure.app{{ page.url }}">
+{% endif %}{% if page.noindex %}<meta name="robots" content="noindex">
+{% else %}<link rel="canonical" href="https://andmeasure.app{{ page.url }}">
+{% endif %}
 <meta name="theme-color" content="#003B5C">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AndMeasure">
@@ -37,7 +39,7 @@
       <a href="{{ '/#modes' | relative_url }}">Features</a>
       <a href="{{ '/#units' | relative_url }}">Land units</a>
       <a href="{{ '/#pro' | relative_url }}">Free and Pro</a>
-      <a href="{{ '/land-unit-converter/' | relative_url }}">Unit converter</a>
+      <a href="{{ '/land-unit-converter/' | relative_url }}"{% if page.url == '/land-unit-converter/' %} aria-current="page"{% endif %}>Unit converter</a>
       <a href="{{ '/#faq' | relative_url }}">Questions</a>
     </nav>
   </div>
