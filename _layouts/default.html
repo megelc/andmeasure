@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title | default: site.title }}</title>
+<link rel="canonical" href="https://andmeasure.app{{ page.url }}">
+<meta name="theme-color" content="#003B5C">
+<link rel="icon" type="image/png" sizes="48x48" href="{{ '/assets/favicon-48.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/icon-192.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header dark">
+  <div class="wrap">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/icon-192.png' | relative_url }}" alt="" width="40" height="40">
+      <span>AndMeasure</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="{{ '/#modes' | relative_url }}">Features</a>
+      <a href="{{ '/#units' | relative_url }}">Land units</a>
+      <a href="{{ '/#pro' | relative_url }}">Free and Pro</a>
+      <a href="{{ '/#faq' | relative_url }}">Questions</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="wrap prose">
+<a class="back" href="{{ '/' | relative_url }}">← AndMeasure home</a>
+{{ content }}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <div class="footer-name">AndMeasure</div>
+      <div>Made by Mikkel Christensen, Denmark</div>
+      <div>Support: <a href="mailto:andmeasure@gmail.com">andmeasure@gmail.com</a></div>
+    </div>
+    <nav aria-label="Footer">
+      <a href="https://play.google.com/store/apps/details?id=com.megelc.andmeasure">Google Play</a>
+      <a href="{{ '/privacypolicy.html' | relative_url }}">Privacy policy</a>
+      <a href="{{ '/termsofservice.html' | relative_url }}">Terms of service</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
