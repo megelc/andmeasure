@@ -3,3 +3,12 @@ description: Measure land area and distance on a map, in acres, hectares or loca
 url: https://andmeasure.app
 exclude:
   - README.md
+defaults:
+  - scope:
+      path: privacypolicy.md
+    values:
+      description: How the AndMeasure app for Android handles your location, measurements and purchases. No account, and your location stays on your phone.
+  - scope:
+      path: termsofservice.md
+    values:
+      description: Terms for using the AndMeasure app for Android and buying AndMeasure Pro, a one-time purchase with no subscription.
