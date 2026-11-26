@@ -45,18 +45,22 @@ permalink: /land-unit-converter/
       </select>
     </div>
   </div>
-  <ul class="converter-results" id="results" aria-live="polite">
+  <p class="converter-status" id="status" role="status"></p>
+  <ul class="converter-results" id="results">
     <li><span>Hectare</span><span class="val">0.4047</span></li>
     <li><span>Guntha</span><span class="val">40</span></li>
-    <li><span>Cent</span><span class="val">100</span></li>
-    <li><span>Marla</span><span class="val">160</span></li>
+    <li><span>Cent (decimal)</span><span class="val">100</span></li>
+    <li><span>Marla (perch)</span><span class="val">160</span></li>
     <li><span>Kanal</span><span class="val">8</span></li>
     <li><span>Bigha</span><span class="val">3.025</span></li>
     <li><span>Katha</span><span class="val">60.5</span></li>
     <li><span>Ground</span><span class="val">18.15</span></li>
     <li><span>Square feet</span><span class="val">43,560</span></li>
-    <li><span>Square yards</span><span class="val">4,840</span></li>
+    <li><span>Square yards (gaj)</span><span class="val">4,840</span></li>
     <li><span>Square meters</span><span class="val">4,046.86</span></li>
+    <li><span>Are</span><span class="val">40.4686</span></li>
+    <li><span>Square kilometers</span><span class="val">0.004047</span></li>
+    <li><span>Square miles</span><span class="val">0.001563</span></li>
   </ul>
   <p class="converter-note">Bigha and katha differ from state to state. This converter, like the app, uses the West Bengal and Bangladesh bigha of 14,400 ft². Check the value used where your land is.</p>
 </form>
@@ -110,14 +114,45 @@ permalink: /land-unit-converter/
   var ACRE = 1 / M2_TO_ACRE, FT2 = 1 / M2_TO_FT2;
   var UNITS = [
     ['acre', 'Acre', ACRE], ['ha', 'Hectare', 1e4], ['guntha', 'Guntha', ACRE / 40],
-    ['cent', 'Cent', ACRE / 100], ['perch', 'Marla', ACRE / 160], ['kanal', 'Kanal', ACRE / 8],
+    ['cent', 'Cent (decimal)', ACRE / 100], ['perch', 'Marla (perch)', ACRE / 160], ['kanal', 'Kanal', ACRE / 8],
     ['bigha', 'Bigha', 14400 * FT2], ['katha', 'Katha', 720 * FT2], ['ground', 'Ground', 2400 * FT2],
-    ['ft2', 'Square feet', FT2], ['yd2', 'Square yards', 9 * FT2], ['m2', 'Square meters', 1],
+    ['ft2', 'Square feet', FT2], ['yd2', 'Square yards (gaj)', 9 * FT2], ['m2', 'Square meters', 1],
     ['are', 'Are', 100], ['km2', 'Square kilometers', 1e6], ['mi2', 'Square miles', 1 / 3.86102159e-7]
   ];
   var amount = document.getElementById('amount');
   var unit = document.getElementById('unit');
   var results = document.getElementById('results');
+  var status = document.getElementById('status');
+
+  // Digits in Devanagari, Bengali, Tamil, Sinhala and Burmese, the app's
+  // other languages, read as 0-9.
+  var DIGIT_ZEROS = [0x0966, 0x09E6, 0x0BE6, 0x0DE6, 0x1040];
+
+  function toLatinDigits(text) {
+    return text.replace(/[\u0966-\u096F\u09E6-\u09EF\u0BE6-\u0BEF\u0DE6-\u0DEF\u1040-\u1049]/g, function (c) {
+      var code = c.charCodeAt(0);
+      for (var i = 0; i < DIGIT_ZEROS.length; i++) {
+        if (code >= DIGIT_ZEROS[i] && code <= DIGIT_ZEROS[i] + 9) return String(code - DIGIT_ZEROS[i]);
+      }
+      return c;
+    });
+  }
+
+  // The amount as a number, or NaN. Commas are thousands separators when
+  // they group digits ("1,000", "1,00,000", "12,345.6"); a single comma
+  // otherwise is a decimal comma ("2,5"), as typed on phones set to most
+  // European languages.
+  function parseAmount(text) {
+    var t = toLatinDigits(text).replace(/[\s\u00A0']/g, '');
+    if (/^\d{1,3}(,\d{2,3})*,\d{3}(\.\d+)?$/.test(t)) {
+      t = t.replace(/,/g, '');
+    } else if (/^\d*,\d*$/.test(t)) {
+      t = t.replace(',', '.');
+    }
+    if (!/^(\d+\.?\d*|\.\d+)$/.test(t)) return NaN;
+    var value = Number(t);
+    return isFinite(value) ? value : NaN;
+  }
 
   function fmt(x) {
     var a = Math.abs(x);
@@ -133,16 +168,14 @@ permalink: /land-unit-converter/
   }
 
   function render() {
-    var raw = amount.value.replace(/[,\s]/g, '');
-    var value = parseFloat(raw);
+    var value = parseAmount(amount.value);
     var from = find(unit.value);
     results.textContent = '';
-    if (raw === '' || isNaN(value) || value < 0) {
-      var li = document.createElement('li');
-      li.textContent = 'Type an amount, for example 2.5';
-      results.appendChild(li);
+    if (isNaN(value)) {
+      status.textContent = amount.value.trim() === '' ? 'Type an amount, for example 2.5' : 'That is not a number. Type it like 2.5 or 1,000';
       return;
     }
+    status.textContent = '';
     var m2 = value * from[2];
     UNITS.forEach(function (u) {
       if (u[0] === from[0]) return;
@@ -156,12 +189,27 @@ permalink: /land-unit-converter/
       li.appendChild(val);
       results.appendChild(li);
     });
+  }
+
+  // Keeps the address shareable: ?amount=&unit= after the user changes
+  // something, and the plain address again at the default of 1 acre.
+  function remember() {
     try {
       var url = new URL(window.location.href);
-      url.searchParams.set('amount', raw);
-      url.searchParams.set('unit', from[0]);
+      var value = parseAmount(amount.value);
+      if (isNaN(value) || (value === 1 && unit.value === 'acre')) {
+        url.search = '';
+      } else {
+        url.searchParams.set('amount', String(value));
+        url.searchParams.set('unit', unit.value);
+      }
       window.history.replaceState(null, '', url);
     } catch (e) { /* older browsers: the page works without it */ }
+  }
+
+  function changed() {
+    render();
+    remember();
   }
 
   try {
@@ -170,8 +218,8 @@ permalink: /land-unit-converter/
     if (params.get('unit') && find(params.get('unit'))[0] === params.get('unit')) unit.value = params.get('unit');
   } catch (e) { /* no URLSearchParams: keep the defaults */ }
 
-  amount.addEventListener('input', render);
-  unit.addEventListener('change', render);
+  amount.addEventListener('input', changed);
+  unit.addEventListener('change', changed);
   render();
 })();
 </script>
