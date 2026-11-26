@@ -173,3 +173,26 @@ details p { margin: 10px 0 0; font-size: 17px; line-height: 1.65; color: var(--i
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Land unit converter */
+.converter { background: var(--paper); border: 1px solid var(--line); border-radius: 20px; padding: 24px; margin: 24px 0 40px; }
+.converter-inputs { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; }
+.converter label { display: block; font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.converter input, .converter select { font: inherit; font-size: 18px; color: var(--ink); background: var(--paper); border: 2px solid #7F96A3; border-radius: 10px; padding: 0 12px; height: 52px; box-sizing: border-box; }
+.converter input { width: 11em; max-width: 100%; }
+.converter select { max-width: 100%; }
+.field-amount { flex: 1 1 160px; }
+.field-unit { flex: 2 1 220px; }
+.field-amount input, .field-unit select { width: 100%; }
+.converter-results { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px 24px; }
+.converter-results li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--chip); font-size: 17px; }
+.converter-results .val { font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; text-align: right; }
+.converter-results .from { color: var(--ink-3); }
+.converter-note { margin: 16px 0 0; font-size: 15px; color: var(--ink-3); }
+.prose table.facts { display: table; width: 100%; font-size: 16px; }
+.prose table.facts td:last-child { font-variant-numeric: tabular-nums; min-width: 9em; }
+.prose table.facts .where { font-size: 15px; color: var(--ink-3); }
+.cta-box { margin: 40px 0 0; padding: 24px; border-radius: 20px; background: var(--navy); color: #FFFFFF; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.cta-box p { margin: 0; color: var(--navy-text); flex: 1 1 280px; }
+.cta-box strong { color: #FFFFFF; }
+.cta-box .play-badge { margin-left: -12px; }
